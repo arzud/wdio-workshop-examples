@@ -6,10 +6,10 @@ exports.config = {
   //
   // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
   // on a remote machine).
-  runner: "local",
+  runner: 'local',
   //
   // Override default path ('/wd/hub') for chromedriver service.
-  path: "/",
+  path: '/',
   //
   // ==================
   // Specify Test Files
@@ -19,7 +19,7 @@ exports.config = {
   // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
   // directory is where your package.json resides, so `wdio` will be called from there.
   //
-  specs: ["./specs/*"],
+  specs: ['./specs/checkboxes.js'],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -53,7 +53,7 @@ exports.config = {
       // 5 instances get started at a time.
       maxInstances: 5,
       //
-      browserName: "chrome"
+      browserName: 'chrome'
       // If outputDir is provided WebdriverIO can capture driver session logs
       // it is possible to configure which logTypes to include/exclude.
       // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -67,7 +67,7 @@ exports.config = {
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: "info",
+  logLevel: 'info',
   //
   // Set specific log levels per logger
   // loggers:
@@ -91,7 +91,7 @@ exports.config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: "http://localhost",
+  baseUrl: 'http://localhost',
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -107,7 +107,7 @@ exports.config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ["chromedriver"],
+  services: ['chromedriver'],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -115,7 +115,7 @@ exports.config = {
   //
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
-  framework: "mocha",
+  framework: 'mocha',
   //
   // The number of times to retry the entire specfile when it fails as a whole
   // specFileRetries: 1,
@@ -123,16 +123,16 @@ exports.config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter.html
-  reporters: ["spec"],
+  reporters: ['spec'],
 
   //
   // Options to be passed to Mocha.
   // See the full list at http://mochajs.org/
   mochaOpts: {
-    ui: "bdd",
+    ui: 'bdd',
     timeout: 60000,
-    require: ["@babel/register"]
-  }
+    require: ['@babel/register']
+  },
   //
   // =====
   // Hooks
@@ -154,7 +154,7 @@ exports.config = {
    * @param {Object} config wdio configuration object
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {Array.<String>} specs List of spec file paths that are to be run
-   */
+  //  */
   // beforeSession: function (config, capabilities, specs) {
   // },
   /**
@@ -163,8 +163,9 @@ exports.config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {Array.<String>} specs List of spec file paths that are to be run
    */
-  // before: function (capabilities, specs) {
-  // },
+  before: function (capabilities, specs) {
+    browser.setWindowSize(1920, 1080);    
+  },
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {String} commandName hook command name
