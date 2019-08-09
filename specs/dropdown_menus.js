@@ -3,7 +3,7 @@ import { expect } from 'chai';
 
 describe('Should verify the functionality of dropdowns', function(){
     it('Should verify the desired option for each dropdown is displayed as selected', function(){
-        browser.url('http://webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html');;
+        browser.url('http://webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html');
         let dropdowns = browser.$$('body select[id*=dropdowm-menu]'); 
         dropdowns.forEach(dropdown => {
             let options = dropdown.$$('option');
